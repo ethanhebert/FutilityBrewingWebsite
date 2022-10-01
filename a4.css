@@ -1,0 +1,173 @@
+/*
+Ethan Hebert
+9-27-22
+CSC-499-002
+Fall 2022
+Assignment 4
+*/
+
+/* Format margin/padding so page takes up whole screen */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Background image */
+body {
+    background-image: url("https://images.squarespace-cdn.com/content/v1/59491ee16b8f5b449449936a/1512493291492-WF07V082BD9XRSSI64QB/IMG_1898.jpg?format=2500w");
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden; /* Get rid of horizontal scroll bar */
+}
+
+/* Title of restaruant with slam entrance animation where the letters squish down */
+.title {
+    line-height: 4.2em;
+    padding: 50px 0px 50px 0px;
+    font-family: 'Staatliches', cursive;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.header {
+    font-size: 700%;
+    transform: translateY(-200px);
+    animation: slam-down 700ms ease-in-out 1s 1 forwards;
+}
+
+@keyframes slam-down {
+    0% {
+        transform: translateY(-200px);
+    }
+
+    80% {
+        transform: translateY(20px); 
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.subheader {
+    font-size: 467%;
+    transform: translateY(-200px);
+    animation: sub-slam-down 700ms ease-in-out 1s 1 forwards;
+}
+
+@keyframes sub-slam-down {
+    0% {
+        /*matrix(xscale, skewY, skewX, yscale, translatex, translatey)*/
+        transform: matrix(1, 0, 0, 1, 0, -200);
+    }
+
+    50%, 60% {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+    }
+    
+    80% {
+        transform: matrix(1.2, 0, 0, 0.4, 0, 0);
+    }
+
+    100% {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+    }
+}
+
+/* Slogan with a solid background that fades in with title animation */
+.slogan {
+    opacity: 0;
+    color: rgb(252, 228, 152);
+    text-align: center;
+    font-family: 'Zilla Slab', serif;
+    font-size: 200%;
+    padding: 0px 0px 4px 0px;
+    background-color: rgb(102, 143, 102);
+
+    animation: fade-in 500ms ease-in-out 1.4s 1 forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+/* Extra advertisement with color fade animation */
+.ad {
+    margin-top: 600px;
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 200%;
+    font-size: 50px;
+    animation: color-fade 2s linear 0s infinite normal;
+}
+
+@keyframes color-fade {
+    0% {
+        color: rgb(252, 228, 152);
+    }
+
+    50% {
+        color: rgb(102, 143, 102);
+    }
+
+    100% {
+        color: rgb(252, 228, 152);
+    }
+}
+
+/* Larger invisible container which includes display settings for the 2 menu/info boxes using flexbox */
+.container {
+    text-align: center;
+    margin-top: 300px;
+    height: 300px;
+    color: rgb(252, 228, 152);
+    font-family: 'Zilla Slab', serif;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+/* Display settings within each menu/info box */
+.container-item {
+    margin: 0px 40px 50px 40px;
+    width: 400px;
+    height: 200px;
+
+    border: solid;
+    border-color: rgb(252, 228, 152);
+
+    text-align: center;
+    background-color: rgba(102, 143, 102, 0.3);
+    font-size: 20px;
+
+    transition: all 300ms ease-in-out 0ms;
+}
+
+/* Enlarge box and fill in background color on hover */
+.container-item:hover {
+    background-color: rgba(102, 143, 102, 1);
+    transform: scale(1.1);
+}
+
+/* Display of the unordered list within each menu/info box */
+.menu {
+    list-style-position: inside;
+    list-style-type: kannada;
+}
+
+.info {
+    list-style-position: inside;
+    list-style-type: none;
+    line-height: 27px;
+}
